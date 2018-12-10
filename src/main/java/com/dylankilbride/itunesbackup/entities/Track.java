@@ -12,21 +12,29 @@ public class Track {
 	@Id
 	@GeneratedValue(strategy = AUTO)
 	private int id;
-	private int trackId;
+	private String trackId;
 	private String name;
 	private String artist;
 	private String album;
 	private String genre;
 	private String year;
-	private int totalTime;
 
 	public Track() {}
+
+	public Track(String trackId, String name, String artist, String album, String genre, String year) {
+		this.trackId = trackId;
+		this.name = name;
+		this.artist = artist;
+		this.album = album;
+		this.genre = genre;
+		this.year = year;
+	}
 
 	public int getId() {
 		return id;
 	}
 
-	public int getTrackId() {
+	public String getTrackId() {
 		return trackId;
 	}
 
@@ -50,15 +58,11 @@ public class Track {
 		return year;
 	}
 
-	public int getTotalTime() {
-		return totalTime;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public void setTrackId(int trackId) {
+	public void setTrackId(String trackId) {
 		this.trackId = trackId;
 	}
 
@@ -80,9 +84,5 @@ public class Track {
 
 	public void setYear(String year) {
 		this.year = year;
-	}
-
-	public void setTotalTime(int totalTime) {
-		this.totalTime = totalTime;
 	}
 }

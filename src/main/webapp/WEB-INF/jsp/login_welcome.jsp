@@ -29,6 +29,9 @@
   </table>
   <input type="submit" value="Submit" />
 </form>
+<form action="registration" method="get">
+  <input type="submit" value="Register" />
+</form>
 
 </body>
 </html>

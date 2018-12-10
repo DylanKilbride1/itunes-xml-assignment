@@ -6,13 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginService {
+public class RegistrationService {
 
 	@Autowired
 	UserRepository userRepository;
 
-	public User validateUserInDb(String email, String password) {
-		User user = userRepository.findByEmailAndPassword(email, password);
-		return user;
+	public void persistNewUser(User user) {
+		userRepository.save(user);
+	}
+
+	public boolean checkIfUserAlreadyExists(String email){
+		if(userRepository.existsByEmail(email)){
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }

@@ -11,20 +11,16 @@
     <title>Registration</title>
 </head>
 <body>
-<h1>Login</h1>
-    <form action="welcome" method="post">
+<h1>Registration</h1>
+    <form action="register_user" method="post">
         <table style="with: 50%">
             <tr>
-                <td>Email</td>
+                <td>Registration Email</td>
                 <td><input type="text" name="email" /></td>
             </tr>
             <tr>
-                <td>Password</td>
+                <td>Registration Password</td>
                 <td><input type="password" name="password" /></td>
-            </tr>
-            <tr>
-                <td>Confirm Password</td>
-                <td><input type="password" name="confirmPassword" /></td>
             </tr>
         </table>
         <input type="submit" value="Submit" />

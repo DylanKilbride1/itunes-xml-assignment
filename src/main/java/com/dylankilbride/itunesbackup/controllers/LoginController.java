@@ -1,14 +1,17 @@
 package com.dylankilbride.itunesbackup.controllers;
 
 import com.dylankilbride.itunesbackup.entities.User;
+import com.dylankilbride.itunesbackup.interfaces.SessionInterface;
 import com.dylankilbride.itunesbackup.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller //Use @Controler instead of @RestController "When you annotate a class with RestController, all methods annotated with @RequestMapping assume @ResponseBody semantics by default. In other words, your method #home is serializing the String /webapp/WEB-INF/home.jsp as JSON, instead of mapping its value to a view."
-public class LoginController {
+public class LoginController implements SessionInterface {
 
 	@Autowired
 	LoginService loginService;
@@ -20,19 +23,18 @@ public class LoginController {
 
 	@RequestMapping(value="/login_user", method = RequestMethod.POST)
 	public String showHomePage(ModelMap model, @ModelAttribute User user){
-
-
 		String email = user.getEmail();
 		String password = user.getPassword();
-		 //= loginService.validateUserDb(email, password);
 
-		if(loginService.validateUserDb(email, password) != null){
+		if(loginService.validateUserInDb(email, password) != null){
 			return "user_home";
 		} else {
 			return "login_welcome";
 		}
 	}
 
+	@Override
+	public void addUserToSession(User user) {
 
-
+	}
 }
