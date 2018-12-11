@@ -16,7 +16,7 @@ public class RegistrationController {
 	RegistrationService registrationService;
 
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
-	public String showLoginLandingPage(ModelMap map) {
+	public String goToLoginLandingPage(ModelMap map) {
 		return "register";
 	}
 
